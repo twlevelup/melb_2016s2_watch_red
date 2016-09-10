@@ -7,8 +7,7 @@ var path = require('path'),
 module.exports = {
   cache: true,
   entry: {
-    main: './client/src/js/main.js',
-    client: './client/'
+    main: './client/src/js/main.js'
   },
   output: {
     path: path.join(__dirname, 'public/'),
