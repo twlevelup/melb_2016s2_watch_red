@@ -1,6 +1,6 @@
 # LevelUp Watch Edition App Development Environment
 
-[![Build Status](https://snap-ci.com/twlevelup/watch_edition/branch/master/build_image)](https://snap-ci.com/twlevelup/watch_edition/branch/master)
+[![Build Status](https://snap-ci.com/twlevelup/melb_2016s2_watch_red/branch/master/build_image)](https://snap-ci.com/twlevelup/melb_2016s2_watch_red/branch/master)
 
 This git repo contains all the code you need to prototype apps for the Proto Watch.
 
@@ -11,6 +11,9 @@ The [wiki](https://github.com/twlevelup/watch_edition/wiki) contains lots of use
 See the [Installation Instructions](https://github.com/twlevelup/watch_edition/wiki/Installation)
 
 ## Continuous Integration
+
+This project is continuously deployed to heroku by [SnapCi](https://snap-ci.com/).
+You can view this app at [https://levelup-melb-red.herokuapp.com/](https://levelup-melb-red.herokuapp.com/)
 
 ### Before you commit
 
