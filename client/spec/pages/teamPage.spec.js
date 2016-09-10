@@ -16,6 +16,10 @@ describe('Check-in dance', function() {
       expect(page.$el).toContainText('Made by:');
     });
 
+    it('Should include Jessica', function() {
+      expect(page.$el).toContainText('Jessica');
+    });
+
     // TODO: Add a test to check for your name
 
   });
