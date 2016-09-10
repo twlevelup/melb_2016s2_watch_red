@@ -27,6 +27,8 @@ describe('Check-in dance', function() {
     // TODO: Add a test to check for your name
     it('should include Rayen', function(){
       expect(page.$el).toContainText('Rayen');
+    it('should include stacey', function() {
+      expect(page.$el).toContainText('stacey');
     });
 
   });
