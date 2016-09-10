@@ -1,7 +1,7 @@
 'use strict';
 
 var TeamPage = require('../../src/js/pages/teamPage'),
-    page;
+  page;
 
 describe('Check-in dance', function() {
 
@@ -16,7 +16,9 @@ describe('Check-in dance', function() {
       expect(page.$el).toContainText('Made by:');
     });
 
-    // TODO: Add a test to check for your name
+    it('should include the text Sami', function() {
+      expect(page.$el).toContainText('Sami');
+    });
 
   });
 });
