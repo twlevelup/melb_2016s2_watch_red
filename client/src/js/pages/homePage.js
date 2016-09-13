@@ -12,7 +12,8 @@ var homePage = Page.extend({
     right: 'goToContacts',
     top: 'scrollUp',
     bottom: 'scrollDown',
-    left: 'goToMyDemoPage'
+    left: 'goToMyDemoPage',
+    face: 'goToMenuPage'
   },
 
   goToContacts: function() {
@@ -30,6 +31,10 @@ var homePage = Page.extend({
   render: function() {
     this.$el.html(this.template());
     return this;
+  },
+
+  goToMenuPage: function () {
+    window.App.navigate('menu');
   },
 
   goToMyDemoPage: function() {
