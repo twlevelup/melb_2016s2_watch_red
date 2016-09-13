@@ -33,7 +33,7 @@ var homePage = Page.extend({
     return this;
   },
 
-  goToMenuPage: function () {
+  goToMenuPage: function() {
     window.App.navigate('menu');
   },
 

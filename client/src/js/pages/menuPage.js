@@ -12,7 +12,7 @@ var menuPage = Menu.extend({
   template: require('../../templates/pages/menu.hbs'),
 
   initialize: function() {
-    this.collection = new OptionsCollection;
+    this.collection = new OptionsCollection();
   },
 
   render: function() {
@@ -20,29 +20,29 @@ var menuPage = Menu.extend({
     menuList = this.collection;
     menuList.add([
       {
-        direction: "up",
-        action: "first option"
+        direction: 'up',
+        action: 'first option'
       },
       {
-        direction: "down",
-        action: "second option"
+        direction: 'down',
+        action: 'second option'
       },
       {
-        direction: "left",
-        action: "third option"
+        direction: 'left',
+        action: 'third option'
       },
       {
-        direction: "right",
-        action: "fourth option"
+        direction: 'right',
+        action: 'fourth option'
       },
       {
-        direction: "screen",
-        action: "fifth option"
+        direction: 'screen',
+        action: 'fifth option'
       }
     ]);
 
-    var directions = menuList.pluck("direction");
-    var actions = menuList.pluck("action");
+    var directions = menuList.pluck('direction');
+    var actions = menuList.pluck('action');
 
     this.$el.html(this.template(
       {

@@ -5,7 +5,7 @@ var MenuPage = require('../../src/js/pages/menuPage'), App = require('../../src/
 
 window.App = App;
 
-describe("The Menu Page", function() {
+describe('The Menu Page', function() {
 
   beforeEach(function() {
     page = new MenuPage();
@@ -21,7 +21,7 @@ describe("The Menu Page", function() {
   describe('rendering', function() {
     it('should produce the correct HTML', function() {
       page.render();
-      expect(page.$el).toContainText("first option: up");
+      expect(page.$el).toContainText('first option: up');
     });
   });
 

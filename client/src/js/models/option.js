@@ -2,8 +2,8 @@
 
 var Option = Backbone.Model.extend({
   defaults: {
-    direction: "up",
-    action: "click"
+    direction: 'up',
+    action: 'click'
   }
 });
 
