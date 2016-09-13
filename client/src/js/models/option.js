@@ -1,10 +1,10 @@
 'use strict';
 
-var Option = Backbone.Model.extend({
+var Option1 = Backbone.Model.extend({
   defaults: {
     direction: 'up',
     action: 'click'
   }
 });
 
-module.exports = Option;
+module.exports = Option1;

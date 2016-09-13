@@ -1,9 +1,9 @@
 'use strict';
 
-var Option = require('../models/option');
+var Option2 = require('../models/option');
 
 var Options = Backbone.Collection.extend({
-  model: Option
+  model: Option2
 });
 
 module.exports = Options;
