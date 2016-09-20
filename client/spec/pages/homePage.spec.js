@@ -9,62 +9,67 @@ window.App = App;
 
 describe('The Home Page', function() {
 
-  beforeEach(function() {
-    page = new HomePage();
-  });
-
-  describe('button event handlers', function() {
-
-    describe('right', function() {
-
-      it('should take the user to the contacts page', function() {
-        spyOn(window.App, 'navigate');
-        page.configureButtons();
-        eventHub.trigger('right');
-        expect(window.App.navigate).toHaveBeenCalledWith('contacts');
-      });
+    beforeEach(function() {
+      page = new HomePage();
     });
 
-    describe('top', function() {
-      it('should scroll the watch face up', function() {
-        spyOn(page, 'scrollUp');
-        page.configureButtons();
-        eventHub.trigger('top');
-        expect(page.scrollUp).toHaveBeenCalled();
-      });
-    });
+    describe('button event handlers', function() {
 
-    describe('bottom', function() {
-      it('should scroll the watch face down', function() {
-        spyOn(page, 'scrollDown');
-        page.configureButtons();
-        eventHub.trigger('bottom');
-        expect(page.scrollDown).toHaveBeenCalled();
+      describe('right', function() {
+        it('should take the user to the contacts page', function() {
+          spyOn(window.App, 'navigate');
+          page.configureButtons();
+          eventHub.trigger('right');
+          expect(window.App.navigate).toHaveBeenCalledWith('contacts');
+        });
       });
-    });
 
-    describe('left', function() {
+      describe('top', function() {
+        it('should scroll the watch face up', function() {
+          spyOn(page, 'scrollUp');
+          page.configureButtons();
+          eventHub.trigger('top');
+          expect(page.scrollUp).toHaveBeenCalled();
+        });
+      });
+
+      describe('bottom', function() {
+        it('should scroll the watch face down', function() {
+          spyOn(page, 'scrollDown');
+          page.configureButtons();
+          eventHub.trigger('bottom');
+          expect(page.scrollDown).toHaveBeenCalled();
+        });
+      });
+
+      describe('left', function() {
         it('should take the user to the demo page', function() {
-            spyOn(window.App, 'navigate');
-            page.configureButtons();
-            eventHub.trigger('left');
-            expect(window.App.navigate).toHaveBeenCalledWith('demo');
-          });
+          spyOn(window.App, 'navigate');
+          page.configureButtons();
+          eventHub.trigger('left');
+          expect(window.App.navigate).toHaveBeenCalledWith('demo');
+        });
       });
 
-  });
-
-  describe('rendering', function() {
-
-    it('should produce the correct HTML', function() {
-      page.render();
-      expect(page.$el).toContainText('Hello, World!');
+      describe('face', function() {
+        it('should take the user to the appointments page', function() {
+          spyOn(window.App, 'navigate');
+          page.configureButtons();
+          eventHub.trigger('face');
+          expect(window.App.navigate).toHaveBeenCalledWith('appointments');
+        });
+      });
     });
 
-    it('returns the view object', function() {
-      expect(page.render()).toEqual(page);
+    describe('rendering', function() {
+      it('should produce the correct HTML', function() {
+        page.render();
+        expect(page.$el).toContainText('Hello, World!');
+      });
+
+      it('returns the view object', function() {
+        expect(page.render()).toEqual(page);
+      });
+
     });
-
   });
-
-});

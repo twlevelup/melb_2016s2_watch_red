@@ -23,4 +23,5 @@ describe('The Demo Page', function() {
       expect(page.$el).toContainHtml('<h2>Welcome, John Smith!</h2>');
 
     });
+
   });
