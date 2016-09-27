@@ -9,5 +9,6 @@ module.exports = {
   eventsList: require('./eventsList'),
   eventDetails: require('./eventDetails'),
   demo: require('./demoPage'),
-  menu: require('./menuPage')
+  menu: require('./menuPage'),
+  day: require('./dayPage')
 };
