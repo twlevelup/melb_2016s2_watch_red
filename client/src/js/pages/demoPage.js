@@ -5,6 +5,10 @@ var demoPage = Page.extend({
 
     id: 'demo',
 
+    buttonEvents: {
+      right: 'back'
+    },
+
     template: require('../../templates/pages/demo.hbs'),
 
     render: function() {
