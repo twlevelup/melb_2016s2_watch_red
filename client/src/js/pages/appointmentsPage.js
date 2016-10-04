@@ -8,7 +8,7 @@ var appointmentsPage = Page.extend({
     template: require('../../templates/pages/appointments.hbs'),
 
     buttonEvents: {
-      face: 'back'
+      left: 'back'
     },
 
     initialize: function() {

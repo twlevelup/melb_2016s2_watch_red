@@ -19,4 +19,13 @@ describe('The Appointments Page', function() {
     });
   });
 
+  describe('left', function() {
+        it('should take the user', function() {
+          spyOn(page, 'back');
+          page.configureButtons();
+          eventHub.trigger('left');
+          expect(page.back).toHaveBeenCalled();
+        });
+  });
+
 });
