@@ -10,5 +10,6 @@ module.exports = {
   eventDetails: require('./eventDetails'),
   demo: require('./demoPage'),
   menu: require('./menuPage'),
-  appointments: require('./appointmentsPage')
+  appointments: require('./appointmentsPage'),
+  time: require('./timePage')
 };

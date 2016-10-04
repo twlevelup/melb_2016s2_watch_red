@@ -62,7 +62,18 @@
     },
     "requirePaddingNewLinesAfterBlocks": true,
     "safeContextKeyword": "self",
-    "validateLineBreaks": "LF",
+    //"validateLineBreaks": "LF",
     "validateQuoteMarks": "'",
     "validateIndentation": 2
 }
+
+
+
+
+
+
+
+
+
+
+

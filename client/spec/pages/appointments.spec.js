@@ -26,6 +26,6 @@ describe('The Appointments Page', function() {
           eventHub.trigger('left');
           expect(page.back).toHaveBeenCalled();
         });
-  });
+      });
 
 });
