@@ -10,9 +10,7 @@ module.exports = {
   eventDetails: require('./eventDetails'),
   demo: require('./demoPage'),
   menu: require('./menuPage'),
-<<<<<<< HEAD
-  appointments: require('./appointmentsPage')
-=======
-  day: require('./dayPage')
->>>>>>> 6f1fa14f5084bd06ae2001e83f5dc94ccb10cfcd
+  appointments: require('./appointmentsPage'),
+  day: require('./dayPage'),
+  month: require('./monthPage')
 };

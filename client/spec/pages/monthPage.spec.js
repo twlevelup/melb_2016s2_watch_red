@@ -20,7 +20,7 @@ describe('The Month Page', function() {
       eventHub.trigger('top');
       // console.log(page.getDay());
       var todayDate = new Date();
-      expect(page.getMonth()).toBe(todayDate.getMonth()+1);
+      expect(page.getMonth()).toBe(todayDate.getMonth() + 1);
     });
   });
 
@@ -31,7 +31,7 @@ describe('The Month Page', function() {
       eventHub.trigger('bottom');
       // console.log(page.getDay());
       var todayDate = new Date();
-      expect(page.getMonth()).toBe(todayDate.getMonth()-1);
+      expect(page.getMonth()).toBe(todayDate.getMonth() - 1);
     });
   });
 });

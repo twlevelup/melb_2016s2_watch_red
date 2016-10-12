@@ -1,4 +1,4 @@
-'use strict';
+   'use strict';
 
 var dayPage = require('../../src/js/pages/dayPage'),
   App = require('../../src/js/app'),
@@ -20,7 +20,40 @@ describe('The Day Page', function() {
       eventHub.trigger('top');
       // console.log(page.getDay());
       var todayDate = new Date();
-      expect(page.getDay()).toBe(todayDate.getDate()+1);
+      expect(page.getDay()).toBe(todayDate.getDate() + 1);
+    });
+  });
+
+  describe('bottom', function() {
+
+    it('should decrement day by 1', function() {
+      page.configureButtons();
+      eventHub.trigger('bottom');
+      // console.log(page.getDay());
+      var todayDate = new Date();
+      expect(page.getDay()).toBe(todayDate.getDate()-1);
+    });
+  });
+
+  describe('bottom', function() {
+
+    it('should decrement day by 1', function() {
+      page.configureButtons();
+      eventHub.trigger('bottom');
+      // console.log(page.getDay());
+      var todayDate = new Date();
+      expect(page.getDay()).toBe(todayDate.getDate()-1);
+    });
+  });
+
+  describe('bottom', function() {
+
+    it('should decrement day by 1', function() {
+      page.configureButtons();
+      eventHub.trigger('bottom');
+      // console.log(page.getDay());
+      var todayDate = new Date();
+      expect(page.getDay()).toBe(todayDate.getDate()-1);
     });
   });
 });
