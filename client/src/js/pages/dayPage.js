@@ -48,12 +48,31 @@ var dayPage = Page.extend({
 
   buttonEvents: {
     // right: 'goToContacts',
-    top: controls[selected].top,
+    top: 'incrementTop',
     bottom: controls[selected].bottom,
-    left: selected--,
-    right: selected++
+    right: 'incrementSelected',
+    left: 'decrementSelected'
   },
 
+  incrementTop: function(){
+    return controls[selected].top;
+  },
+
+  incrementSelected: function(){
+    selected+=1;
+    if(selected==4) {
+      getNextPage();
+    };
+    this.render();
+  },
+
+  decrementSelected: function(){
+    selected-=1;
+    if(selected==0) {
+      getPrevPage();
+    }
+    this.render();
+  },
   // goToContacts: function() {
   //   window.App.navigate('contacts');
   // },
@@ -121,8 +140,8 @@ var dayPage = Page.extend({
     },
 
     decrementYear: function() {
-      if(year==1){
-        year = 31;
+      if(year== today.getYear()){
+        year = 9999;
       }
       else{
         year-=1;
@@ -138,7 +157,9 @@ var dayPage = Page.extend({
   render: function() {
     this.$el.html(this.template({
       day: day,
-      monthName: monthName[month]
+      monthName: monthName[month],
+      year: year+1900,
+      selected: selected
     }));
     //this.$el.html(this.template({month: month}));
     return this;
