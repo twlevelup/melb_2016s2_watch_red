@@ -48,14 +48,21 @@ var dayPage = Page.extend({
 
   buttonEvents: {
     // right: 'goToContacts',
-    top: 'incrementTop',
-    bottom: controls[selected].bottom,
+    top: 'updateTop',
+    bottom: 'updateBottom',
     right: 'incrementSelected',
     left: 'decrementSelected'
   },
 
+  updateTop: function() {
+    console.log(selected);
+    if(selected === 1){
+       this.datePrint(true, false, false, false, false)
+    }
+  },
+
   incrementTop: function(){
-    return controls[selected].top;
+    controls[selected].top;
   },
 
   incrementSelected: function(){
@@ -87,6 +94,7 @@ var dayPage = Page.extend({
     else{
       day+=1;
     }
+    console.log('increment called');
     this.render();
   },
 
@@ -114,7 +122,8 @@ var dayPage = Page.extend({
       else {
         day += 1;
       }
-
+      console.log('i m here');
+    //  this.datePrint(false, true, false, false);
       this.render();
     },
 
@@ -125,28 +134,39 @@ var dayPage = Page.extend({
       else {
         month -= 1;
       }
-
+      console.log('i m here');
+      this.datePrint(false, false, true, false);
       this.render();
     },
 
     incrementYear: function() {
-      if(year == 9999){
+      if(year == 8099){
         year = today.getYear();
       }
       else{
         year+=1;
       }
+      console.log('year called');
       this.render();
     },
 
     decrementYear: function() {
       if(year== today.getYear()){
-        year = 9999;
+        year = 8099;
       }
       else{
         year-=1;
       }
       this.render();
+    },
+
+    datePrint: function(incrementDay, decrementDay, incrementMonth, decrementMonth, updateYear) {
+      return {
+      day: incrementDay ? day++ : decrementDay ? day-- : 1,
+      monthName: incrementMonth ? incrementMonth() : decrementMonth ? thdecrementMonth() : 10,
+      year: updateYear ? incrementYear(year) :1900,
+      selected: selected,
+    };
     },
 
   // scrollDown: function() {
@@ -155,12 +175,14 @@ var dayPage = Page.extend({
 
 //'printing' html from hbs page
   render: function() {
-    this.$el.html(this.template({
-      day: day,
-      monthName: monthName[month],
-      year: year+1900,
-      selected: selected
-    }));
+    console.log('render');
+    this.$el.html(this.template(
+      // day: day,
+      // monthName: monthName[month],
+      // year: year+1900,
+      // selected: selected
+      this.datePrint(false,false,false,false)
+    ));
     //this.$el.html(this.template({month: month}));
     return this;
   },
