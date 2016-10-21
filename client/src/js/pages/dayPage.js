@@ -48,20 +48,35 @@ var dayPage = Page.extend({
 
   buttonEvents: {
     // right: 'goToContacts',
-    top: 'incrementTop',
-    bottom: controls[selected].bottom,
+    top: 'incrementFunction',
+    bottom: 'decrementFunction',
     right: 'incrementSelected',
     left: 'decrementSelected'
   },
 
-  incrementTop: function(){
-    return controls[selected].top;
+  incrementFunction: function(){
+   if (selected == 1) this.incrementDay();
+   if (selected == 2) this.incrementMonth();
+   if (selected == 3) this.incrementYear();
+   localStorage.setItem("day", day);
+   localStorage.setItem("monthName", monthName[month]);
+   localStorage.setItem("year", year+1900);
+
+  },
+
+  decrementFunction: function(){
+   if (selected == 1) this.decrementDay();
+   if (selected == 2) this.decrementMonth();
+   if (selected == 3) this.decrementYear();
+   localStorage.setItem("day", day);
+   localStorage.setItem("monthName", monthName[month]);
+   localStorage.setItem("year", year+1900);
   },
 
   incrementSelected: function(){
     selected+=1;
     if(selected==4) {
-      getNextPage();
+      this.getNextPage();
     };
     this.render();
   },
@@ -69,16 +84,18 @@ var dayPage = Page.extend({
   decrementSelected: function(){
     selected-=1;
     if(selected==0) {
-      getPrevPage();
+      this.getPrevPage();
     }
     this.render();
   },
-  // goToContacts: function() {
-  //   window.App.navigate('contacts');
-  // },
-  // getDay: function(){
-  //   return day;
-  // },
+
+  getPrevPage: function() {
+    window.App.navigate('home');
+  },
+
+  getNextPage: function() {
+    window.App.navigate('appointments');
+  },
 
   incrementDay: function() {
     if(day == 31){
@@ -108,19 +125,19 @@ var dayPage = Page.extend({
     // },
 
     incrementMonth: function() {
-      if (month == 12) {
-        month = 1;
+      if (month == 11) {
+        month = 0;
       }
       else {
-        day += 1;
+        month += 1;
       }
 
       this.render();
     },
 
     decrementMonth: function() {
-      if (month == 1) {
-        month = 12;
+      if (month == 0) {
+        month = 11;
       }
       else {
         month -= 1;
@@ -141,7 +158,7 @@ var dayPage = Page.extend({
 
     decrementYear: function() {
       if(year== today.getYear()){
-        year = 9999;
+        year = 8099;
       }
       else{
         year-=1;
