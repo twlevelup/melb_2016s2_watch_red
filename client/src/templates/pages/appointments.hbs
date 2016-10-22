@@ -1,4 +1,3 @@
-<h1>Hello World!</h1>
 <style>
 .container{
     background-color: #3F484A;
@@ -32,7 +31,7 @@
         width: 100%;
     }
 
-    .box:nth-child(2){
+    .box:nth-of-type({{selected}}){
         border: 1px solid black;
         animation: blink .5s step-end infinite alternate;
     }
@@ -43,11 +42,10 @@
 </style>
 
 <div class="container">
-    <div class="text">TIME</div>
-    <div class="box">12</div>
-    <div class="text">:</div>
-    <div class="box">34</div>
-    <div class="box">PM</div>
+    <div class="box">{{hour}}</div>
+    <span class="text">:</span>
+    <div class="box">{{min}}</div>
+    <div class="box">{{amPm}}</div>
 </div>
 
-<div> {{hour}} | {{min}} | {{amPm}} </div>
+<!--<div> {{hour}} | {{min}} | {{amPm}} </div>-->

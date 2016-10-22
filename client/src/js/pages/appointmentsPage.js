@@ -25,7 +25,7 @@ var appointmentsPage = Page.extend({
     if (selected === 2) this.incrementMin();
     if (selected === 3) this.changeAMPM();
     localStorage.setItem("hour", hour);
-    localStroage.setItem("min", min);
+    localStorage.setItem("min", min);
     localStorage.setItem("AMPM", amPm);
   },
 
@@ -34,7 +34,7 @@ var appointmentsPage = Page.extend({
     if (selected === 2) this.decrementMin();
     if (selected === 3) this.changeAMPM();
     localStorage.setItem("hour", hour);
-    localStroage.setItem("min", min);
+    localStorage.setItem("min", min);
     localStorage.setItem("AMPM", amPm);
   },
 
@@ -46,7 +46,8 @@ var appointmentsPage = Page.extend({
     this.$el.html(this.template({
       hour: hour,
       min: min,
-      amPm: amPm
+      amPm: amPm,
+      selected: selected
     }));
     return this;
   },
