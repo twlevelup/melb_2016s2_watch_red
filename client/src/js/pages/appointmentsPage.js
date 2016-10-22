@@ -4,20 +4,6 @@ var hour = 0;
 var min = 0;
 var amPm = "AM";
 var selected = 1;
-var controls = [
-  {
-    top: "incrementHour",
-    bottom: "decrementHour"
-  },
-  {
-    top: "incrementMin",
-    bottom: "decrementMin"
-  },
-  {
-    top: "changeAMPM",
-    bottom: "changeAMPM"
-  }
-];
 
 var Page = require('watch_framework').Page;
 
@@ -28,10 +14,28 @@ var appointmentsPage = Page.extend({
   template: require('../../templates/pages/appointments.hbs'),
 
   buttonEvents: {
-    top: controls[selected-1].top,
-    bottom: controls[selected-1].bottom,
+    top: "incrementFunction", 
+    bottom: "decrementFunction", 
     right: "incrementSelected",
     left: "decrementSelected"
+  },
+
+  incrementFunction: function() {
+    if (selected === 1) this.incrementHour(); 
+    if (selected === 2) this.incrementMin();
+    if (selected === 3) this.changeAMPM();
+    localStorage.setItem("hour", hour);
+    localStroage.setItem("min", min);
+    localStorage.setItem("AMPM", amPm);
+  },
+
+  decrementFunction: function() {
+    if (selected === 1) this.decrementHour();
+    if (selected === 2) this.decrementMin();
+    if (selected === 3) this.changeAMPM();
+    localStorage.setItem("hour", hour);
+    localStroage.setItem("min", min);
+    localStorage.setItem("AMPM", amPm);
   },
 
   initialize: function() {
@@ -49,7 +53,6 @@ var appointmentsPage = Page.extend({
 
   incrementSelected: function() {
     selected += 1;
-    console.log(controls[selected-1])
     if (selected === 4) {
       getNextPage();
     }
@@ -66,6 +69,14 @@ var appointmentsPage = Page.extend({
     this.render();
   },
 
+  getNextPage: function() {
+    window.App.navigate("alarm");
+  },
+
+  getPrevPage: function() {
+    window.App.navigate("day");
+  },
+
   incrementHour: function() {
     if (hour === 12) {
       hour = 0
@@ -73,7 +84,7 @@ var appointmentsPage = Page.extend({
       this.render();
     }
     hour += 1
-      console.log("hour: " + hour)
+    console.log("hour: " + hour)
     this.render();
   },
 
@@ -110,11 +121,10 @@ var appointmentsPage = Page.extend({
     if (amPm === "AM") {
       amPm = "PM"
       this.render();
-    }
-    amPM = "AM"
+    } else  
+      amPm = "AM"
     this.render();
   }
-
 
 });
 
