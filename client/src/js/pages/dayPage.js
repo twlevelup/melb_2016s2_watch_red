@@ -76,6 +76,7 @@ var dayPage = Page.extend({
   incrementSelected: function(){
     selected+=1;
     if(selected==4) {
+      selected=1;
       this.getNextPage();
     };
     this.render();

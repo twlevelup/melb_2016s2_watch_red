@@ -31,6 +31,15 @@
         width: 100%;
     }
 
+    .box:nth-child({{selected}}){
+        border: 1px solid black;
+        animation: blink .5s step-end infinite alternate;
+    }
+
+    @keyframes blink {
+       50% { border-color: #FACCE0; }
+    }
+
 </style>
 
 
