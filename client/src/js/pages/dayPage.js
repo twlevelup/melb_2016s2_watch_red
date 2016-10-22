@@ -82,7 +82,7 @@ var dayPage = Page.extend({
     this.render();
   },
 
-  decrementSelecte0d: function(){
+  decrementSelected: function(){
     selected-=1;
     if(selected==0) {
       this.getPrevPage();

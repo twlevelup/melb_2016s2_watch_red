@@ -1,9 +1,12 @@
 'use strict';
 
-var hour = 0;
+var hour = 12;
 var min = 0;
 var amPm = 'AM';
 var selected = 1;
+localStorage.setItem('hour', hour);
+localStorage.setItem('min', min);
+localStorage.setItem('AMPM', amPm);
 
 var Page = require('watch_framework').Page;
 
@@ -55,6 +58,7 @@ var appointmentsPage = Page.extend({
   incrementSelected: function() {
     selected += 1;
     if (selected === 4) {
+      selected=1;
       this.getNextPage();
     }
 
@@ -65,6 +69,7 @@ var appointmentsPage = Page.extend({
   decrementSelected: function() {
     selected -= 1;
     if (selected === 0) {
+      selected=1;
       this.getPrevPage();
     }
 
@@ -81,47 +86,48 @@ var appointmentsPage = Page.extend({
   },
 
   incrementHour: function() {
-    if (hour === 12) {
-      hour = 0
-      console.log('hour: ' + hour)
-      this.render();
+    if (hour == 12) {
+      hour = 1;
     }
-
-    hour += 1
-    console.log('hour: ' + hour)
+    else {
+      hour += 1;
+    }
     this.render();
   },
 
   decrementHour: function() {
-    if (hour === 0) {
-      hour = 12
-      console.log('hour: ' + hour)
-      this.render();
+    if (hour == 1) {
+      hour = 12;
+    }
+    else {
+      hour -= 1;
     }
 
-    hour -= 1
-    console.log('hour: ' + hour)
     this.render();
   },
 
   incrementMin: function() {
-    if (min === 59) {
+    if (min === 45) {
       min = 0
+      this.render();
+    }else {
+      min += 15
       this.render();
     }
 
-    min += 1
-    this.render();
+
   },
 
   decrementMin: function() {
     if (min === 0) {
-      min = 59
+      min = 45
+      this.render();
+    }else{
+      min -= 15
       this.render();
     }
 
-    min -= 1
-    this.render();
+
   },
 
   changeAMPM: function() {
@@ -136,4 +142,3 @@ var appointmentsPage = Page.extend({
 });
 
 module.exports = appointmentsPage;
-

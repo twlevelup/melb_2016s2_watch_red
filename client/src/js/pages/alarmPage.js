@@ -2,12 +2,7 @@
 
 var Page = require('watch_framework').Page;
 
-var day = localStorage.getItem("day");
-var monthName = localStorage.getItem("monthName");
-var year = localStorage.getItem("year");
-var hour = localStorage.getItem("hour");
-var min = localStorage.getItem("min");
-var ampm = localStorage.getItem("AMPM");
+
 
 var alarmPage = Page.extend({
 
@@ -16,6 +11,7 @@ var alarmPage = Page.extend({
   template: require('../../templates/pages/alarmPage.hbs'),
 
   buttonEvents: {
+    left: 'getPrevPage',
     right: 'getNextPage'
     // top: 'scrollUp',
     // bottom: 'scrollDown',
@@ -26,6 +22,12 @@ var alarmPage = Page.extend({
 
 
   render: function() {
+    var day = localStorage.getItem("day");
+    var monthName = localStorage.getItem("monthName");
+    var year = localStorage.getItem("year");
+    var hour = localStorage.getItem("hour");
+    var min = localStorage.getItem("min");
+    var ampm = localStorage.getItem("AMPM");
     this.$el.html(this.template({
       day: day,
       monthName: monthName,
@@ -39,6 +41,9 @@ var alarmPage = Page.extend({
 
   getNextPage: function(){
     window.App.navigate('confirm');
+  },
+  getPrevPage: function() {
+    window.App.navigate('appointments');
   }
 
 });
