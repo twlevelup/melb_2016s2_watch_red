@@ -1,7 +1,44 @@
-<!-- html goes here -->
-<!-- <form>
-  <input type="number" name="day" min="1" max="31" value={{day}}>
-  <input type="number" name="month" min="1" max="12" value={{month}}>
-  <input type="number" name="year" min="00" max="99" value={{year}}>
-</form> -->
-<div>{{day}} | {{monthName}} | {{year}} | {{selected}}</div>
+<style>
+.container{
+    background-color: #3F484A;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    align-content: center;
+    text-align: center;
+    font-family: OpenSans-Light, Helvetica, Arial, sans-serif;
+    letter-spacing: 2px;
+    font-weight: lighter;
+}
+
+    .box{
+        background-color: black;
+        padding: 8px;
+        font-size: 27px;
+        margin: 2px;
+        box-shadow: 2px 2px grey;
+        margin:3px;
+    }
+
+    .text{
+        font-size: 40px;
+        background-color: inherit;
+        text-align: left;
+        padding:0 0 8px 2px;
+    }
+    .text:first-child{
+        width: 100%;
+    }
+
+</style>
+
+
+<div class="container">
+    <div class="text">DATE</div>
+    <div class="box">{{day}}</div>
+    <div class="box">{{monthName}}</div>
+    <div class="box">{{year}}</div>
+</div>
+
+<div><p>{{day}} | {{monthName}} | {{year}} | {{selected}}</p></div>
