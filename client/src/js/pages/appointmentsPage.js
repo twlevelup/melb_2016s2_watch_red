@@ -55,7 +55,7 @@ var appointmentsPage = Page.extend({
   incrementSelected: function() {
     selected += 1;
     if (selected === 4) {
-      getNextPage();
+      this.getNextPage();
     }
 
     console.log('selected: ' + selected);
@@ -65,7 +65,7 @@ var appointmentsPage = Page.extend({
   decrementSelected: function() {
     selected -= 1;
     if (selected === 0) {
-      getPrevPage();
+      this.getPrevPage();
     }
 
     console.log('selected: ' + selected)

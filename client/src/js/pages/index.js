@@ -11,6 +11,5 @@ module.exports = {
   demo: require('./demoPage'),
   menu: require('./menuPage'),
   appointments: require('./appointmentsPage'),
-  day: require('./dayPage'),
-  month: require('./monthPage')
+  day: require('./dayPage')
 };
