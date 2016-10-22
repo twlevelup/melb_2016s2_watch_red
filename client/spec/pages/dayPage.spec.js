@@ -1,4 +1,4 @@
-   'use strict';
+'use strict';
 
 var dayPage = require('../../src/js/pages/dayPage'),
   App = require('../../src/js/app'),
@@ -31,7 +31,7 @@ describe('The Day Page', function() {
       eventHub.trigger('bottom');
       // console.log(page.getDay());
       var todayDate = new Date();
-      expect(page.getDay()).toBe(todayDate.getDate()-1);
+      expect(page.getDay()).toBe(todayDate.getDate() - 1);
     });
   });
 
@@ -42,7 +42,7 @@ describe('The Day Page', function() {
       eventHub.trigger('bottom');
       // console.log(page.getDay());
       var todayDate = new Date();
-      expect(page.getDay()).toBe(todayDate.getDate()-1);
+      expect(page.getDay()).toBe(todayDate.getDate() - 1);
     });
   });
 
@@ -53,7 +53,7 @@ describe('The Day Page', function() {
       eventHub.trigger('bottom');
       // console.log(page.getDay());
       var todayDate = new Date();
-      expect(page.getDay()).toBe(todayDate.getDate()-1);
+      expect(page.getDay()).toBe(todayDate.getDate() - 1);
     });
   });
 });

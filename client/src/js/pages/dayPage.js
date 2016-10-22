@@ -27,15 +27,15 @@ var selected = 1;
 var controls = new Array(5);
 controls[1] = {
   top: 'incrementDay',
-  bottom: 'decrementDay',
+  bottom: 'decrementDay'
 };
 controls[2] = {
   top: 'incrementMonth',
-  bottom: 'decrementMonth',
+  bottom: 'decrementMonth'
 };
 controls[3] = {
   top: 'incrementYear',
-  bottom: 'decrementYear',
+  bottom: 'decrementYear'
 };
 
 var Page = require('watch_framework').Page;
@@ -54,39 +54,41 @@ var dayPage = Page.extend({
     left: 'decrementSelected'
   },
 
-  incrementFunction: function(){
-   if (selected == 1) this.incrementDay();
-   if (selected == 2) this.incrementMonth();
-   if (selected == 3) this.incrementYear();
-   localStorage.setItem("day", day);
-   localStorage.setItem("monthName", monthName[month]);
-   localStorage.setItem("year", year+1900);
+  incrementFunction: function() {
+    if (selected == 1) this.incrementDay();
+    if (selected == 2) this.incrementMonth();
+    if (selected == 3) this.incrementYear();
+    localStorage.setItem('day', day);
+    localStorage.setItem('monthName', monthName[month]);
+    localStorage.setItem('year', year + 1900);
 
   },
 
-  decrementFunction: function(){
-   if (selected == 1) this.decrementDay();
-   if (selected == 2) this.decrementMonth();
-   if (selected == 3) this.decrementYear();
-   localStorage.setItem("day", day);
-   localStorage.setItem("monthName", monthName[month]);
-   localStorage.setItem("year", year+1900);
+  decrementFunction: function() {
+    if (selected == 1) this.decrementDay();
+    if (selected == 2) this.decrementMonth();
+    if (selected == 3) this.decrementYear();
+    localStorage.setItem('day', day);
+    localStorage.setItem('monthName', monthName[month]);
+    localStorage.setItem('year', year + 1900);
   },
 
-  incrementSelected: function(){
-    selected+=1;
-    if(selected==4) {
-      selected=1;
+  incrementSelected: function() {
+    selected += 1;
+    if (selected == 4) {
+      selected = 1;
       this.getNextPage();
     };
+
     this.render();
   },
 
-  decrementSelected: function(){
-    selected-=1;
-    if(selected==0) {
+  decrementSelected: function() {
+    selected -= 1;
+    if (selected == 0) {
       this.getPrevPage();
     }
+
     this.render();
   },
 
@@ -99,89 +101,93 @@ var dayPage = Page.extend({
   },
 
   incrementDay: function() {
-    if(day == 31){
+    if (day == 31) {
       day = 1;
     }
-    else{
-      day+=1;
+    else {
+      day += 1;
     }
+
     this.render();
   },
 
   decrementDay: function() {
-    if(day==1){
+    if (day == 1) {
       day = 31;
     }
-    else{
-      day-=1;
+    else {
+      day -= 1;
     }
+
     this.render();
   },
 
-    // goToContacts: function() {
-    //   window.App.navigate('contacts');
-    // // },
-    // getDay: function() {
-    //   return monthName;
-    // },
+  // goToContacts: function() {
+  //   window.App.navigate('contacts');
+  // // },
+  // getDay: function() {
+  //   return monthName;
+  // },
 
-    incrementMonth: function() {
-      if (month == 11) {
-        month = 0;
-      }
-      else {
-        month += 1;
-      }
+  incrementMonth: function() {
+    if (month == 11) {
+      month = 0;
+    }
+    else {
+      month += 1;
+    }
 
-      this.render();
-    },
+    this.render();
+  },
 
-    decrementMonth: function() {
-      if (month == 0) {
-        month = 11;
-      }
-      else {
-        month -= 1;
-      }
+  decrementMonth: function() {
+    if (month == 0) {
+      month = 11;
+    }
+    else {
+      month -= 1;
+    }
 
-      this.render();
-    },
+    this.render();
+  },
 
-    incrementYear: function() {
-      if(year == 9999){
-        year = today.getYear();
-      }
-      else{
-        year+=1;
-      }
-      this.render();
-    },
+  incrementYear: function() {
+    if (year == 9999) {
+      year = today.getYear();
+    }
+    else {
+      year += 1;
+    }
 
-    decrementYear: function() {
-      if(year== today.getYear()){
-        year = 8099;
-      }
-      else{
-        year-=1;
-      }
-      this.render();
-    },
+    this.render();
+  },
+
+  decrementYear: function() {
+    if (year == today.getYear()) {
+      year = 8099;
+    }
+    else {
+      year -= 1;
+    }
+
+    this.render();
+  },
 
   // scrollDown: function() {
   //   $('#watch-face').animate({scrollTop: '+=70px'});
   // },
 
-//'printing' html from hbs page
+  //'printing' html from hbs page
   render: function() {
     this.$el.html(this.template({
       day: day,
       monthName: monthName[month],
-      year: year+1900,
+      year: year + 1900,
       selected: selected
     }));
     //this.$el.html(this.template({month: month}));
     return this;
-  },
+  }
 
   // goToMenuPage: function() {
   //   window.App.navigate('menu');
