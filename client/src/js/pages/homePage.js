@@ -13,7 +13,7 @@ var homePage = Page.extend({
     top: 'scrollUp',
     bottom: 'scrollDown',
     left: 'goToMyDemoPage',
-    face: 'goToAppointments'
+    face: 'goToDay'
   },
 
   goToContacts: function() {
@@ -33,8 +33,8 @@ var homePage = Page.extend({
     return this;
   },
 
-  goToAppointments: function() {
-    window.App.navigate('appointments');
+  goToDay: function() {
+    window.App.navigate('day');
   },
 
   goToMyDemoPage: function() {
