@@ -32,7 +32,7 @@
         width: 100%;
     }
 
-    .box:nth-child({{selected}}){
+    .box:nth-of-type({{selected}}){
         border: 1px solid black;
         animation: blink .5s step-end infinite alternate;
     }
@@ -49,4 +49,3 @@
     <div class="box">{{monthName}}</div>
     <div class="box">{{year}}</div>
 </div>
-
