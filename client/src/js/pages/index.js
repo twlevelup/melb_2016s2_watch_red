@@ -12,5 +12,6 @@ module.exports = {
   menu: require('./menuPage'),
   appointments: require('./appointmentsPage'),
   day: require('./dayPage'),
-  alarm: require('./alarmPage')
+  alarm: require('./alarmPage'),
+  confirm: require('./confirm')
 };
